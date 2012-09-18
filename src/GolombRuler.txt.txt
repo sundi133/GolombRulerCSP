@@ -1,0 +1,39 @@
+
+PROBLEM 4:
+
+Golomb Ruler using backtrack.
+
+1. The constraints that exists in this problem is the values should be assigned to variables such that any two pair of values assigned are different. This constraint is checked at each step while assigning the values. If an assignment fails at one step, backtracking is done and the value of the last visited valid variable is incremented to the next valid value. If the end is reached and a valid solution is found, the results is printed else no solution found is printed.Each variable is tajen as a node and a dfs is done through it assigning a valid value to it at each step satisfying all the constraints. For checking constraints a 2*2 table matrix is maintained which stores all the differences between each assigned pair. The assigned values to the variables are assigned in checkpoint[] array.
+
+
+
+Forward checking:
+
+After assigning  a value to a variable it checks if a variabale which is not assigned yet is yet left with a set of valid values to staisfy the constraints. If not bactrack from there itself.It is seen that forward checking takes less time then backtracking. This method checks at each step if any valid variables are left after an assignment of a value to one of the variable. An extra check is added to checkValididtyFC().
+
+If the number of remaining valid values are less then the number of variables to be assigned, then we return from there itself.We see that the difference in time exceeds as the ruler size goes on increasing
+
+
+Trace 1
+Input M and L with a space in between ex: 4 6
+
+9 44
+Golomb Ruler configuration is ...
+0,1,5,12,25,27,35,41,44.BT execution time 274 msecs
+
+0,1,5,12,25,27,35,41,44.FC execution time 249 msecs
+
+
+
+Trace 2
+Input M and L with a space in between ex: 4 6
+
+10 55
+Golomb Ruler configuration is ...
+0,1,6,10,23,26,34,41,53,55.BT execution time 2908 msecs
+
+0,1,6,10,23,26,34,41,53,55.FC execution time 2641 msecs
+
+
+
+
